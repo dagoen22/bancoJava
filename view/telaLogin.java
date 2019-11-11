@@ -125,7 +125,6 @@ public class telaLogin extends javax.swing.JFrame {
         String senha = tfSenha.getText();
         if(consultas.consultaConta(conta, senha)){
             //Abre o Jframe de opções
-            JOptionPane.showMessageDialog(this, conta + " " + senha);
             opcoes frame = new opcoes();
             frame.setVisible(true);
             dispose();

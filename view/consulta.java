@@ -5,18 +5,29 @@
  */
 package view;
 
+
+import banco.consultas;
 /**
  *
  * @author red
  */
 public class consulta extends javax.swing.JFrame {
-
     /**
      * Creates new form consulta
      */
     public consulta() {
         initComponents();
         this.setLocationRelativeTo(null);
+        
+        int saldo = (int) consultas.consultaSaldo();
+        int depRea = (int) consultas.consultaDepRealizados();
+        int depRec = (int) consultas.consultaRecebidos();
+        int saques = (int) consultas.consultaSaqRealizados();
+        
+        lbSaldo.setText(String.valueOf(saldo));
+        lbDepositos.setText(String.valueOf(depRea));
+        lbDeposRecebi.setText(String.valueOf(depRec));
+        lbSaques.setText(String.valueOf(saques));
     }
 
     /**

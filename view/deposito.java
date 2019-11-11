@@ -5,6 +5,8 @@
  */
 package view;
 
+import banco.depositos;
+import javax.swing.JOptionPane;
 /**
  *
  * @author red
@@ -125,9 +127,18 @@ public class deposito extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btOkActionPerformed
-        opcoes frame = new opcoes();
-        frame.setVisible(true);
-        dispose();
+        double valor = Double.valueOf(tfValor.getText());
+        int conta = Integer.valueOf(tfConta.getText());
+        
+        if(depositos.fazerDeposito(valor, conta)){
+            JOptionPane.showMessageDialog(this, "Deposito realizado com sucesso");
+            opcoes frame = new opcoes();
+            frame.setVisible(true);
+            dispose();
+        } else{
+            JOptionPane.showMessageDialog(this, "Erro ao fazer o deposito");
+        }
+        
     }//GEN-LAST:event_btOkActionPerformed
 
     private void tfValorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfValorActionPerformed
